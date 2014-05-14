@@ -1,16 +1,17 @@
 {
-  "name": "markdown-middleware",
-  "version": "0.1.5",
+  "name": "markded-middleware",
+  "version": "0.0.4",
   "description": "middleware for serving markdown files as rendered HTML",
   "keywords": [
     "markdown",
     "connect",
     "github",
-    "serve"
+    "serve",
+    "middleware"
   ],
-  "author": "Jake Rosoman<jkroso@gmail.com>",
+  "author": "Markuz GJ",
   "repository": {
-    "url": "git://github.com/jkroso/markdown-middleware.git"
+    "url": "git://github.com/markuz-gj/marked-middleware.git"
   },
   "dependencies": {
     "ejs": "1.0.0",
