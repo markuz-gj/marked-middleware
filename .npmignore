@@ -1,0 +1,5 @@
+coverage
+build.sh
+.tmp
+etc
+gulpfile.js
