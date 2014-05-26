@@ -107,7 +107,7 @@ function checkTime () {
     getStat(SRC, function(err, stats){
       if (err) {return reject(err);}
       if ((Date.now() - stats.mtime) > (5*day)){
-        return resolve(true)
+        return resolve(false)
       }
       else {
         return resolve(false)
@@ -139,10 +139,13 @@ function readCss () {
  */
 function getCss () {
   return checkTime().then(function(isOld){
-    if (isOld){ return writeCss().then(function(str){
-      if (!str) { return readCss(); }
-      return str
-    }); }
+
+    if (isOld){ 
+      return writeCss().then(function(str){
+        if (!str) return readCss()
+        return str
+      })
+    }
     return readCss()
   })
 }
@@ -176,7 +179,9 @@ module.exports = function(opts){
       if (e) return next(e)
 
       compile(md, compileOpts, function(e, html){
+
         getCss().then(function(str){
+
           res.end(ejs.render(TEMPLATE, {
             css: [str],
             markdown: html,
